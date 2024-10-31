@@ -4,62 +4,93 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>POS System</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/customer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/customer.css" />
   </head>
   <body>
-    <header>
+    <header class="bg-light text-center py-3">
       <div class="container">
         <h1>ArtPOS</h1>
-        <p>Artistic Point of Sale System</p>
+        <p>ArtPOS System - Store Management</p>
       </div>
     </header>
-    <nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li>
-            <a href="/pages/Customer Management.html">Manage Customers</a>
-          </li>
-          <li><a href="/pages/Store Management.html">Manage Store</a></li>
-          <li><a href="/pages/Order Management.html">Manage Orders</a></li>
-        </ul>
+        <a class="navbar-brand" href="#">ArtPOS</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-item">
+              <a href="/pages/Customer Management.html" class="nav-link"
+                >Manage Customers</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/pages/Store Management.html" class="nav-link"
+                >Manage Store</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/pages/Order Management.html" class="nav-link"
+                >Manage Orders</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
-    <div class="container">
-      <h2>Items</h2>
+    <div class="container my-4">
+      <h2 class="text-center">Items</h2>
       <div class="card">
         <div class="card-header">Items</div>
         <div class="card-body">
-          <div class="row">
-            <div class="col-md-3">
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4">
               <h5>Item Search</h5>
               <input
                 type="text"
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Input Item Name/ Code Here"
               />
-              <div class="d-flex align-items-center mb-2">
-                <button class="btn btn-success">Search</button>
-                <select class="form-control">
+              <div class="d-flex mb-2">
+                <button class="btn btn-success me-2">Search</button>
+                <select class="form-select">
                   <option selected>Name</option>
                   <option>Code</option>
                 </select>
               </div>
-              <button class="btn btn-danger">Delete</button>
-              <button class="btn btn-info">Details</button>
-              <button class="btn btn-success">Clear</button>
+              <div class="btn-group">
+                <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-info">Details</button>
+                <button class="btn btn-success">Clear</button>
+              </div>
             </div>
-            <div class="col-md-9 text-end">
-              <button class="btn btn-primary" onclick="showModal()">
+            <div class="col-md-8 text-end">
+              <button
+                class="btn btn-primary mb-2"
+                data-bs-toggle="modal"
+                data-bs-target="#newItemModal"
+              >
                 New Item
               </button>
-              <button class="btn btn-warning">View All Items</button>
+              <button class="btn btn-warning mb-2">View All Items</button>
             </div>
           </div>
-
-          <table class="table">
+          <table class="table table-responsive table-striped mt-3">
             <thead>
               <tr>
                 <th>Item Code</th>
@@ -87,33 +118,44 @@
       </div>
     </div>
 
-    <div class="modal" id="newItemModal">
+    <div
+      class="modal fade"
+      id="newItemModal"
+      tabindex="-1"
+      aria-labelledby="newItemModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">New Item</h5>
-            <button class="btn-close" onclick="closeModal()">&times;</button>
+            <h5 class="modal-title" id="newItemModalLabel">New Item</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <form>
               <input
                 type="text"
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Enter Item Code"
               />
               <input
                 type="text"
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Enter Item Name"
               />
               <input
                 type="number"
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Enter Item Price"
               />
               <input
                 type="number"
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Enter Item Quantity"
               />
             </form>
@@ -121,7 +163,7 @@
           <div class="modal-footer">
             <button class="btn btn-danger">Save</button>
             <button class="btn btn-warning">Renew</button>
-            <button class="btn btn-secondary" onclick="closeModal()">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
               Close
             </button>
           </div>
@@ -129,13 +171,6 @@
       </div>
     </div>
 
-    <script>
-      function showModal() {
-        document.getElementById("newItemModal").style.display = "block";
-      }
-      function closeModal() {
-        document.getElementById("newItemModal").style.display = "none";
-      }
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

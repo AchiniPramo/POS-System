@@ -14,6 +14,10 @@
   border-radius: 5px 5px 0 0;
 }
 
+.container h1,
+p {
+  color: #000000;
+}
 .form-group {
   margin-bottom: 15px;
 }

@@ -4,62 +4,88 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Customer Management</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/customer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/customer.css" />
   </head>
   <body>
-    <header>
+    <header class="text-center bg-light py-3">
       <div class="container">
         <h1>ArtPOS</h1>
         <p>Artistic Point of Sale System</p>
       </div>
     </header>
-    <nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li>
-            <a href="/pages/Customer Management.html">Manage Customers</a>
-          </li>
-          <li><a href="/pages/Store Management.html ">Manage Store</a></li>
-          <li><a href="/pages/Order Management.html ">Manage Orders</a></li>
-        </ul>
+        <a class="navbar-brand" href="#">ArtPOS</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-item">
+              <a href="/pages/Customer Management.html" class="nav-link"
+                >Manage Customers</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/pages/Store Management.html" class="nav-link"
+                >Manage Store</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/pages/Order Management.html" class="nav-link"
+                >Manage Orders</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
-    <div class="container">
-      <h2>Customers</h2>
+    <div class="container my-4">
+      <h2 class="text-center">Customers</h2>
       <div class="card">
         <div class="card-header">Customers</div>
         <div class="card-body">
-          <div class="row">
-            <div class="col-md-3">
+          <div class="row g-3 align-items-center">
+            <div class="col-md-4">
               <h5>Customer Search</h5>
               <input
                 type="text"
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Input Name/ Mobile Here"
               />
-              <div class="d-flex align-items-center mb-2">
-                <button class="btn btn-success">Search</button>
-                <select class="form-control">
+              <div class="d-flex mb-2">
+                <button class="btn btn-success me-2">Search</button>
+                <select class="form-select">
                   <option selected>Name</option>
                   <option>Mobile</option>
                 </select>
               </div>
-              <button class="btn btn-danger">Delete</button>
-              <button class="btn btn-info">Details</button>
-              <button class="btn btn-success">Clear</button>
+              <div class="btn-group">
+                <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-info">Details</button>
+                <button class="btn btn-success">Clear</button>
+              </div>
             </div>
-            <div class="col-md-9 text-end">
-              <button class="btn btn-primary" onclick="showModal()">
+            <div class="col-md-8 text-end">
+              <button class="btn btn-primary mb-2" onclick="showModal()">
                 New Customer
               </button>
-              <button class="btn btn-warning">View All Customers</button>
+              <button class="btn btn-warning mb-2">View All Customers</button>
             </div>
           </div>
-
-          <table class="table">
+          <table class="table table-responsive table-striped mt-3">
             <thead>
               <tr>
                 <th>Customer ID</th>
@@ -87,33 +113,37 @@
       </div>
     </div>
 
-    <div class="modal" id="newCustomerModal">
+    <div class="modal" id="newCustomerModal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">New Customer</h5>
-            <button class="btn-close" onclick="closeModal()">&times;</button>
+            <button
+              type="button"
+              class="btn-close"
+              onclick="closeModal()"
+            ></button>
           </div>
           <div class="modal-body">
             <form>
               <input
                 type="text"
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Enter Customer ID"
               />
               <input
                 type="text"
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Enter Customer Name"
               />
               <input
                 type="text"
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Enter Customer Address"
               />
               <input
                 type="tel"
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Enter Customer Mobile Number"
               />
             </form>
@@ -137,5 +167,6 @@
         document.getElementById("newCustomerModal").style.display = "none";
       }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
