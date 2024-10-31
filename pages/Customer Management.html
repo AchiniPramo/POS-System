@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Management</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/customer.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>ArtPOS</h1>
+        <p>Artistic Point of Sale System</p>
+      </div>
+    </header>
+    <nav>
+      <div class="container">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li>
+            <a href="/pages/Customer Management.html">Manage Customers</a>
+          </li>
+          <li><a href="/pages/Store Management.html ">Manage Store</a></li>
+          <li><a href="/pages/Order Management.html ">Manage Orders</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h2>Customers</h2>
+      <div class="card">
+        <div class="card-header">Customers</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <h5>Customer Search</h5>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Input Name/ Mobile Here"
+              />
+              <div class="d-flex align-items-center mb-2">
+                <button class="btn btn-success">Search</button>
+                <select class="form-control">
+                  <option selected>Name</option>
+                  <option>Mobile</option>
+                </select>
+              </div>
+              <button class="btn btn-danger">Delete</button>
+              <button class="btn btn-info">Details</button>
+              <button class="btn btn-success">Clear</button>
+            </div>
+            <div class="col-md-9 text-end">
+              <button class="btn btn-primary" onclick="showModal()">
+                New Customer
+              </button>
+              <button class="btn btn-warning">View All Customers</button>
+            </div>
+          </div>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Address</th>
+                <th>Mobile Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>C001</td>
+                <td>Saman</td>
+                <td>Galle</td>
+                <td>0743350984</td>
+              </tr>
+              <tr>
+                <td>C002</td>
+                <td>Sampth</td>
+                <td>Kandy</td>
+                <td>0745613864</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="newCustomerModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">New Customer</h5>
+            <button class="btn-close" onclick="closeModal()">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Customer ID"
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Customer Name"
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Customer Address"
+              />
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="Enter Customer Mobile Number"
+              />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-danger">Save</button>
+            <button class="btn btn-warning">Renew</button>
+            <button class="btn btn-secondary" onclick="closeModal()">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showModal() {
+        document.getElementById("newCustomerModal").style.display = "block";
+      }
+      function closeModal() {
+        document.getElementById("newCustomerModal").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

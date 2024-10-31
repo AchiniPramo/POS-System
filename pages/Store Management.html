@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POS System</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/customer.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>ArtPOS</h1>
+        <p>Artistic Point of Sale System</p>
+      </div>
+    </header>
+    <nav>
+      <div class="container">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li>
+            <a href="/pages/Customer Management.html">Manage Customers</a>
+          </li>
+          <li><a href="/pages/Store Management.html">Manage Store</a></li>
+          <li><a href="/pages/Order Management.html">Manage Orders</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h2>Items</h2>
+      <div class="card">
+        <div class="card-header">Items</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <h5>Item Search</h5>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Input Item Name/ Code Here"
+              />
+              <div class="d-flex align-items-center mb-2">
+                <button class="btn btn-success">Search</button>
+                <select class="form-control">
+                  <option selected>Name</option>
+                  <option>Code</option>
+                </select>
+              </div>
+              <button class="btn btn-danger">Delete</button>
+              <button class="btn btn-info">Details</button>
+              <button class="btn btn-success">Clear</button>
+            </div>
+            <div class="col-md-9 text-end">
+              <button class="btn btn-primary" onclick="showModal()">
+                New Item
+              </button>
+              <button class="btn btn-warning">View All Items</button>
+            </div>
+          </div>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Item Code</th>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>I001</td>
+                <td>Dhal</td>
+                <td>300</td>
+                <td>55</td>
+              </tr>
+              <tr>
+                <td>I002</td>
+                <td>Rice</td>
+                <td>344</td>
+                <td>51</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="newItemModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">New Item</h5>
+            <button class="btn-close" onclick="closeModal()">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Item Code"
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Item Name"
+              />
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Enter Item Price"
+              />
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Enter Item Quantity"
+              />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-danger">Save</button>
+            <button class="btn btn-warning">Renew</button>
+            <button class="btn btn-secondary" onclick="closeModal()">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showModal() {
+        document.getElementById("newItemModal").style.display = "block";
+      }
+      function closeModal() {
+        document.getElementById("newItemModal").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
